@@ -1,5 +1,5 @@
 .price {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   letter-spacing: 0.1rem;
   line-height: calc(1 + 0.5 / var(--font-body-scale));
   color: rgb(var(--color-foreground));
@@ -24,10 +24,17 @@
 
 .price__regular .price-item--regular {
   margin-right: 0;
+  font-size: 3rem;
 }
 
 .price:not(.price--show-badge) .price-item--last:last-of-type {
   margin: 0;
+}
+
+@media screen and (min-width: 990px) {
+  .price {
+    font-size: 2.7rem;
+  }
 }
 
 @media screen and (min-width: 750px) {

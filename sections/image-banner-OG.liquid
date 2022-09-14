@@ -55,10 +55,6 @@
         alt: section.settings.image.alt | escape
       }}
     </div>
-  {%- elsif section.settings.image_2 == blank -%}
-    <div class="banner__media media{% if section.settings.image == blank and section.settings.image_2 == blank %} placeholder{% endif %}{% if section.settings.image_2 != blank %} banner__media-half{% endif %}">
-      {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
-    </div>
   {%- endif -%}
   {%- if section.settings.image_2 != blank -%}
     <div class="banner__media media{% if section.settings.image != blank %} banner__media-half{% endif %}">
@@ -90,25 +86,6 @@
     <div class="banner__box content-container content-container--full-width-mobile color-{{ section.settings.color_scheme }} gradient">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
-          {%- when 'image' -%}
-            {%- if block.settings.logo != blank -%}
-              {%-liquid
-                assign logo_height = block.settings.logo.width | divided_by: block.settings.logo.aspect_ratio
-                if block.settings.image != blank
-                  assign logo_class = "banner__logo-media"
-                endif
-              -%}
-              <div class="banner__logo">
-                {{ block.settings.logo | image_url: width: 1500 | image_tag:
-                  loading: 'lazy',
-                  width: block.settings.logo.width,
-                  height: logo_height,
-                  class: logo_class,
-                  alt: block.settings.logo.alt | escape
-                }}
-              </div>
-            {%- endif -%}
-
           {%- when 'heading' -%}
             <h2 class="banner__heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
               <span>{{ block.settings.heading | escape }}</span>
@@ -118,23 +95,21 @@
               <span>{{ block.settings.text | escape }}</span>
             </div>
           {%- when 'buttons' -%}
-            <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank and block.settings.button_label_3 != blank and block.settings.button_label_4 != blank and block.settings.button_label_5 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
-              {%- if block.settings.button_label_1 != blank -%}
-                <a{% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_1 | escape }}</a>
-              {%- endif -%}
-              {%- if block.settings.button_label_2 != blank -%}
-                <a{% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}</a>
-              {%- endif -%}
-              {%- if block.settings.button_label_3 != blank -%}
-                <a{% if block.settings.button_link_3 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_3 }}"{% endif %} class="button{% if block.settings.button_style_secondary_3 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_3 | escape }}</a>
-              {%- endif -%}
-              {%- if block.settings.button_label_4 != blank -%}
-                <a{% if block.settings.button_link_4 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_4 }}"{% endif %} class="button{% if block.settings.button_style_secondary_4 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_4 | escape }}</a>
-              {%- endif -%}
-              {%- if block.settings.button_label_5 != blank -%}
-                <a{% if block.settings.button_link_5 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_5 }}"{% endif %} class="button{% if block.settings.button_style_secondary_5 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_5 | escape }}</a>
-              {%- endif -%}
+            <div class="banner__buttons{% if block.settings.button_label_1 != blank and block.settings.button_label_2 != blank %} banner__buttons--multiple{% endif %}" {{ block.shopify_attributes }}>
+
+              <a
+                {% if block.settings.button_link_1 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_1 }}"{% endif %} class="button{% if block.settings.button_style_secondary_1 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_1 | escape }}
+                <img class="alot_radio_buttons_img_apple" src="{{ 'applemusic_logo.png' | file_img_url: '300x40'}}">
+              </a>
               
+
+              <a 
+                
+                {% if block.settings.button_link_2 == blank %} role="link" aria-disabled="true"{% else %} href="{{ block.settings.button_link_2 }}"{% endif %} class="button{% if block.settings.button_style_secondary_2 %} button--secondary{% else %} button--primary{% endif %}">{{ block.settings.button_label_2 | escape }}
+                <img class="alot_radio_buttons_img_spotify" src="{{ 'spotify_logo.png' | file_img_url: '450x50'}}">
+              </a>
+
+
             </div>
         {%- endcase -%}
       {%- endfor -%}
@@ -144,7 +119,7 @@
 
 {% schema %}
 {
-  "name": "t:sections.image-banner.name",
+  "name": "Image banner OG",
   "tag": "section",
   "class": "section",
   "settings": [
@@ -334,18 +309,6 @@
   ],
   "blocks": [
     {
-      "type": "image",
-      "name": "Image",
-      "limit": 1,
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "logo",
-          "label": "Logo"
-        }
-      ]
-    },
-    {
       "type": "heading",
       "name": "t:sections.image-banner.blocks.heading.name",
       "limit": 1,
@@ -451,67 +414,13 @@
           "id": "button_style_secondary_2",
           "default": false,
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_2.label"
-        },
-        {
-          "type": "text",
-          "id": "button_label_3",
-          "default": "Button label",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_3.label",
-          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_3.info"
-        },
-        {
-          "type": "url",
-          "id": "button_link_3",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_3.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_3",
-          "default": false,
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_3.label"
-        },
-        {
-          "type": "text",
-          "id": "button_label_4",
-          "default": "Button label",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_4.label",
-          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_4.info"
-        },
-        {
-          "type": "url",
-          "id": "button_link_4",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_4.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_4",
-          "default": false,
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_4.label"
-        },
-        {
-          "type": "text",
-          "id": "button_label_5",
-          "default": "Button label",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_label_5.label",
-          "info": "t:sections.image-banner.blocks.buttons.settings.button_label_5.info"
-        },
-        {
-          "type": "url",
-          "id": "button_link_5",
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_link_5.label"
-        },
-        {
-          "type": "checkbox",
-          "id": "button_style_secondary_5",
-          "default": false,
-          "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_5.label"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "t:sections.image-banner.presets.name",
+      "name": "Image banner OG",
       "blocks": [
         {
           "type": "heading"

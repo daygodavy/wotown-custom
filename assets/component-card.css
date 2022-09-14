@@ -6,7 +6,7 @@
 }
 
 .card {
-  text-align: var(--card-text-alignment);
+  /* text-align: var(--card-text-alignment); */
   text-decoration: none;
 }
 
@@ -57,9 +57,11 @@
   background-color: transparent;
 }
 
-.card-information {
+/* .card-information {
   text-align: var(--card-text-alignment);
-}
+  text-align: center;
+  font-family: "Neue Montreal Italic";
+} */
 
 .card__media,
 .card .media {
@@ -83,6 +85,7 @@
 
 .card__inner {
   width: 100%;
+  background-color: transparent;
 }
 
 .card--media .card__inner .card__content {
@@ -151,7 +154,18 @@
 .card__heading {
   margin-top: 0;
   margin-bottom: 0;
+  /* font-family: "Neue Montreal Italic"; */
+  font-family: "Helvetica Neue Bold";
+  text-align: center;
+  font-size: 2rem;
 }
+
+@media screen and (min-width: 990px) {
+  .card__heading {
+    font-size: 2.7rem;
+  }
+}
+
 
 .card__heading:last-child {
   margin-bottom: 0;
@@ -226,10 +240,10 @@
     transform: scale(1.03);
   }
 
-  .underline-links-hover:hover a {
+  /* .underline-links-hover:hover a {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
-  }
+  } */
 }
 
 .card--standard.card--media .card__inner .card__information,
@@ -283,6 +297,9 @@
 
 .card-information {
   width: 100%;
+  text-align: center;
+  /* font-family: "Neue Montreal Italic"; */
+  font-family: "Helvetica Neue Bold";
 }
 
 .card-information > * {

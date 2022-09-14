@@ -1092,7 +1092,38 @@
             },
             "button_style_secondary_2": {
               "label": "Use outline button style"
+            },
+            "button_label_3": {
+              "label": "Third button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link_3": {
+              "label": "Third button link"
+            },
+            "button_style_secondary_3": {
+              "label": "Use outline button style"
+            },
+            "button_label_4": {
+              "label": "Fourth button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link_4": {
+              "label": "Fourth button link"
+            },
+            "button_style_secondary_4": {
+              "label": "Use outline button style"
+            },
+            "button_label_5": {
+              "label": "Fifth button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link_5": {
+              "label": "Fifth button link"
+            },
+            "button_style_secondary_5": {
+              "label": "Use outline button style"
             }
+
           }
         }
       },
@@ -2355,6 +2386,36 @@
               "label": "Second button link"
             },
             "button_style_secondary_2": {
+              "label": "Use outline button style"
+            },
+            "button_label_3": {
+              "label": "Third button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link_3": {
+              "label": "Third button link"
+            },
+            "button_style_secondary_3": {
+              "label": "Use outline button style"
+            },
+            "button_label_4": {
+              "label": "Fourth button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link_4": {
+              "label": "Fourth button link"
+            },
+            "button_style_secondary_4": {
+              "label": "Use outline button style"
+            },
+            "button_label_5": {
+              "label": "Fifth button label",
+              "info": "Leave the label blank to hide the button."
+            },
+            "button_link_5": {
+              "label": "Fifth button link"
+            },
+            "button_style_secondary_5": {
               "label": "Use outline button style"
             }
           }

@@ -1,0 +1,113 @@
+
+/*.hero-banner {
+  height: 120vh;
+  padding: 2rem;
+  background-size: cover;
+}*/
+
+@media only screen and (max-width: 749px) {
+  .hero-banner{
+    height: 200vw;
+    width: 100vw;
+    padding: 1rem;
+    background-size: contain;
+
+    /* background-repeat: no-repeat;
+    background-size: 100vw 100%;
+    padding: 1rem; */
+   }
+}
+
+@media only screen and (min-width: 750px) {
+  .hero-banner{
+    /* NOTE: 100vh may cause issues on safari for iPhone due to url browser being at the bottom of the screen */
+    height: 140vh;
+    padding: 2rem;
+    /* background-size: contain; */
+    /* background-repeat: no-repeat; */
+
+    /* NOTE: increase the size of hero banner so background-size cover isn't cropped */
+    background-size: cover;
+  }
+}
+
+/*.hero-banner__button {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  padding: 1rem 5rem;
+  width: max-content;
+  background: white;
+  color: black;
+  font-size: 5rem;
+  font-weight: 900;
+  border-radius: 1rem;
+  text-decoration: none;
+  mix-blend-mode: screen;
+  line-height: 5rem;
+}*/
+
+.banner__logo {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding-left: 3%;
+  margin-bottom: 5rem;
+  /* margin-left: 8%; */
+}
+
+.banner__logo img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+
+.hero-nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  margin: 0 auto;
+  line-height: normal;
+} 
+
+.nav-item {
+  display: flex;
+  margin-bottom: 3rem;
+  padding: 0 2rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background: white;
+  color: black;
+  font-family: "Neue Montreal Bold";
+  font-size: 4rem;
+  font-weight: 700;
+  border-radius: 1rem;
+  text-decoration: none;
+  mix-blend-mode: screen;
+}
+
+.nav-item--child {
+  margin-bottom: 1%;
+  font-size: 3rem;
+  mix-blend-mode: unset;
+  color: white;
+  background-color: transparent;
+}
+
+.hero-nav-menu li:last-child .nav-item--child {
+  margin-bottom: 2rem;
+}
+
+@media only screen and (max-width: 990px) {
+  .nav-item {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    
+    /* line-height: calc(1.9 + 0.8 / var(--font-body-scale)); */
+  }
+
+  .nav-item--child {
+    margin-bottom: 1%;
+  }
+}

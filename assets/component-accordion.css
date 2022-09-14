@@ -51,8 +51,18 @@
   word-break: break-word;
   overflow-x: auto;
   padding: 0 0.6rem;
+
 }
 
 .accordion__content img {
   max-width: 100%;
+  border-style: none !important;
+}
+
+.accordion__content-row-text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* remove margin-left after centered simage is imported */
+  margin-left: 1rem;
 }

@@ -1311,6 +1311,7 @@ button.shopify-payment-button__button--unbranded {
   -webkit-appearance: none;
   appearance: none;
   background-color: rgba(var(--color-button), var(--alpha-button-background));
+  /* background-color: green; */
 }
 
 .button:before,
@@ -1385,13 +1386,23 @@ button.shopify-payment-button__button--unbranded {
   background-color: rgba(var(--color-button-text), 0.3);
 }
 
-.button,
+/* .button, */
 .button-label,
 .shopify-challenge__button,
 .customer button {
   font-size: 1.5rem;
   letter-spacing: 0.1rem;
   line-height: calc(1 + 0.2 / var(--font-body-scale));
+}
+
+
+/* CUSTOM1 */
+.button.button--primary {
+  font-size: 2rem;
+  line-height: calc(1 + 0.2 / var(--font-body-scale));
+  background-color: white;
+  color: black;
+  /* mix-blend-mode: lighten; */
 }
 
 .button--tertiary {
@@ -2912,3 +2923,5 @@ details-disclosure > details {
     outline: transparent solid 1px;
   }
 }
+
+

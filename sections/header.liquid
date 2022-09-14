@@ -36,11 +36,35 @@
     max-width: {{ section.settings.logo_width }}px;
   }
 
+
   @media screen and (min-width: 990px) {
-    header-drawer {
+    {% comment %} header-drawer {
       display: none;
+    } {% endcomment %}
+    .header__search {
+      display: none !important;
+    } 
+    .header--top-center *>.header__search {
+      display: inline-flex !important;
     }
   }
+
+  @media screen and (min-width: 750px) {
+    .header {
+      display: flex !important;
+      justify-content: space-between !important;
+      
+    }
+
+    .header__heading-logo {
+      padding-left: 5% !important;
+    }
+  }
+
+  .header {
+    align-items: start !important;
+  }
+
 
   .menu-drawer-container {
     display: flex;
@@ -372,6 +396,78 @@
     {%- if request.page_type == 'index' -%}
       <h1 class="header__heading">
     {%- endif -%}
+    {% comment %} <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset"> {% endcomment %}
+      {% liquid
+        assign collection_one = section.settings.collection_one.title | handleize
+        assign collection_two = section.settings.collection_two.title | handleize
+        assign collection_three = section.settings.collection_three.title | handleize
+        assign collection_four = section.settings.collection_four.title | handleize
+        assign collection_five = section.settings.collection_five.title | handleize
+        assign collection_six = section.settings.collection_six.title | handleize
+        assign collection_seven = section.settings.collection_seven.title | handleize
+        
+      %}
+      {%- if canonical_url contains 'collections' -%}
+        {% liquid
+          if canonical_url contains collection_one
+            assign header_image = section.settings.collection_image_one
+          elsif canonical_url contains collection_two
+            assign header_image = section.settings.collection_image_two
+          elsif canonical_url contains collection_three
+            assign header_image = section.settings.collection_image_three
+          elsif canonical_url contains collection_four
+            assign header_image = section.settings.collection_image_four
+          elsif canonical_url contains collection_five
+            assign header_image = section.settings.collection_image_five
+          elsif canonical_url contains collection_six
+            assign header_image = section.settings.collection_image_six
+          elsif canonical_url contains collection_seven
+            assign header_image = section.settings.collection_image_seven
+          endif
+        %}
+
+        
+        {{ header_image | image_url: width: section.settings.width | image_tag:
+          class: 'header__heading-logo',
+          widths: '50, 100, 150, 200, 250, 300, 400, 500',
+          height: logo_height,
+          width: section.settings.logo_width,
+          alt: logo_alt
+        }}
+      
+      {%- elsif canonical_url contains 'products' -%}
+      {% comment %} LOGIC ASSUMES THAT EACH/ALL PRODUCTS BELONG TO ONLY ONE COLLECTION {% endcomment %}
+        {% liquid
+          assign curr_collection = product.collections[0].title | handleize
+          if curr_collection == collection_one
+            assign header_image = section.settings.collection_image_one
+          elsif curr_collection == collection_two
+            assign header_image = section.settings.collection_image_two
+          elsif curr_collection == collection_three
+            assign header_image = section.settings.collection_image_three
+          elsif curr_collection == collection_four
+            assign header_image = section.settings.collection_image_four
+          elsif curr_collection == collection_five
+            assign header_image = section.settings.collection_image_five
+          elsif curr_collection == collection_six
+            assign header_image = section.settings.collection_image_six
+          elsif canonical_url contains collection_seven
+            assign header_image = section.settings.collection_image_seven
+          endif
+        %}
+        
+        {{ header_image | image_url: width: section.settings.width | image_tag:
+          class: 'header__heading-logo',
+          widths: '50, 100, 150, 200, 250, 300, 400, 500',
+          height: logo_height,
+          width: section.settings.logo_width,
+          alt: logo_alt
+        }}
+      {%- elsif canonical_url contains 'pages' -%}
+        {% comment %} about page: no header logo needed, leave blank {% endcomment %}
+        
+      {%- else -%}
+
         <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
           {%- if section.settings.logo != blank -%}
             {%- assign logo_alt = section.settings.logo.alt | default: shop.name | escape -%}
@@ -387,10 +483,13 @@
             <span class="h2">{{ shop.name }}</span>
           {%- endif -%}
         </a>
+      {%- endif -%}
+
     {%- if request.page_type == 'index' -%}
       </h1>
     {%- endif -%}
 
+    {% comment %}
     {%- if section.settings.menu != blank -%}
       {%- if section.settings.menu_type_desktop == 'dropdown' -%}
         <nav class="header__inline-menu">
@@ -489,80 +588,85 @@
         </nav>
       {%- endif -%}
     {%- endif -%}
+  {% endcomment %}
+
+
 
     <div class="header__icons">
-      <details-modal class="header__search">
-        <details>
-          <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
-            <span>
-              <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
-                <use href="#icon-search">
-              </svg>
-              <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
-                <use href="#icon-close">
-              </svg>
-            </span>
-          </summary>
-          <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
-            <div class="modal-overlay"></div>
-            <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
-              {%- if settings.predictive_search_enabled -%}
-                <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
-              {%- endif -%}
-                <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
-                  <div class="field">
-                    <input class="search__input field__input"
-                      id="Search-In-Modal"
-                      type="search"
-                      name="q"
-                      value=""
-                      placeholder="{{ 'general.search.search' | t }}"
-                      {%- if settings.predictive_search_enabled -%}
-                        role="combobox"
-                        aria-expanded="false"
-                        aria-owns="predictive-search-results-list"
-                        aria-controls="predictive-search-results-list"
-                        aria-haspopup="listbox"
-                        aria-autocomplete="list"
-                        autocorrect="off"
-                        autocomplete="off"
-                        autocapitalize="off"
-                        spellcheck="false"
-                      {%- endif -%}
-                    >
-                    <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
-                    <input type="hidden" name="options[prefix]" value="last">
-                    <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-                      <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
-                        <use href="#icon-search">
-                      </svg>
-                    </button>
-                  </div>
-
-                  {%- if settings.predictive_search_enabled -%}
-                    <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
-                      <div class="predictive-search__loading-state">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
-                      </div>
-                    </div>
-
-                    <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
-                  {%- endif -%}
-                </form>
-              {%- if settings.predictive_search_enabled -%}
-                </predictive-search>
-              {%- endif -%}
-              <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
-                <svg class="icon icon-close" aria-hidden="true" focusable="false" role="presentation">
+      {%- if canonical_url contains 'collections' or canonical_url contains 'products' -%}
+        <details-modal class="header__search">
+          <details>
+            <summary class="header__icon header__icon--search header__icon--summary link focus-inset modal__toggle" aria-haspopup="dialog" aria-label="{{ 'general.search.search' | t }}">
+              <span>
+                <svg class="modal__toggle-open icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                  <use href="#icon-search">
+                </svg>
+                <svg class="modal__toggle-close icon icon-close" aria-hidden="true" focusable="false" role="presentation">
                   <use href="#icon-close">
                 </svg>
-              </button>
+              </span>
+            </summary>
+            <div class="search-modal modal__content gradient" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+              <div class="modal-overlay"></div>
+              <div class="search-modal__content{% if settings.inputs_shadow_vertical_offset != 0 and settings.inputs_shadow_vertical_offset < 0 %} search-modal__content-top{% else %} search-modal__content-bottom{% endif %}" tabindex="-1">
+                {%- if settings.predictive_search_enabled -%}
+                  <predictive-search class="search-modal__form" data-loading-text="{{ 'accessibility.loading' | t }}">
+                {%- endif -%}
+                  <form action="{{ routes.search_url }}" method="get" role="search" class="search search-modal__form">
+                    <div class="field">
+                      <input class="search__input field__input"
+                        id="Search-In-Modal"
+                        type="search"
+                        name="q"
+                        value=""
+                        placeholder="{{ 'general.search.search' | t }}"
+                        {%- if settings.predictive_search_enabled -%}
+                          role="combobox"
+                          aria-expanded="false"
+                          aria-owns="predictive-search-results-list"
+                          aria-controls="predictive-search-results-list"
+                          aria-haspopup="listbox"
+                          aria-autocomplete="list"
+                          autocorrect="off"
+                          autocomplete="off"
+                          autocapitalize="off"
+                          spellcheck="false"
+                        {%- endif -%}
+                      >
+                      <label class="field__label" for="Search-In-Modal">{{ 'general.search.search' | t }}</label>
+                      <input type="hidden" name="options[prefix]" value="last">
+                      <button class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
+                        <svg class="icon icon-search" aria-hidden="true" focusable="false" role="presentation">
+                          <use href="#icon-search">
+                        </svg>
+                      </button>
+                    </div>
+
+                    {%- if settings.predictive_search_enabled -%}
+                      <div class="predictive-search predictive-search--header" tabindex="-1" data-predictive-search>
+                        <div class="predictive-search__loading-state">
+                          <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                          </svg>
+                        </div>
+                      </div>
+
+                      <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
+                    {%- endif -%}
+                  </form>
+                {%- if settings.predictive_search_enabled -%}
+                  </predictive-search>
+                {%- endif -%}
+                <button type="button" class="search-modal__close-button modal__close-button link link--text focus-inset" aria-label="{{ 'accessibility.close' | t }}">
+                  <svg class="icon icon-close" aria-hidden="true" focusable="false" role="presentation">
+                    <use href="#icon-close">
+                  </svg>
+                </button>
+              </div>
             </div>
-          </div>
-        </details>
-      </details-modal>
+          </details>
+        </details-modal>
+      {%- endif -%}
 
       {%- if shop.customer_accounts_enabled -%}
         <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}">
@@ -776,10 +880,80 @@
       "label": "t:sections.header.settings.logo.label"
     },
     {
+      "type": "image_picker",
+      "id": "collection_image_one",
+      "label": "Collection image one"
+    },
+    {
+      "type": "collection",
+      "id": "collection_one",
+      "label": "Collection one"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_two",
+      "label": "Collection image two"
+    },
+    {
+      "type": "collection",
+      "id": "collection_two",
+      "label": "Collection two"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_three",
+      "label": "Collection image three"
+    },
+    {
+      "type": "collection",
+      "id": "collection_three",
+      "label": "Collection three"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_four",
+      "label": "Collection image four"
+    },
+    {
+      "type": "collection",
+      "id": "collection_four",
+      "label": "Collection four"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_five",
+      "label": "Collection image five"
+    },
+    {
+      "type": "collection",
+      "id": "collection_five",
+      "label": "Collection five"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_six",
+      "label": "Collection image six"
+    },
+    {
+      "type": "collection",
+      "id": "collection_six",
+      "label": "Collection six"
+    },
+    {
+      "type": "image_picker",
+      "id": "collection_image_seven",
+      "label": "Collection image seven"
+    },
+    {
+      "type": "collection",
+      "id": "collection_seven",
+      "label": "Collection seven"
+    },
+    {
       "type": "range",
       "id": "logo_width",
       "min": 50,
-      "max": 250,
+      "max": 500,
       "step": 10,
       "default": 100,
       "unit": "t:sections.header.settings.logo_width.unit",
