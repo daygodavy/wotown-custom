@@ -13,18 +13,21 @@
         "1663187050c0254fe4-0": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "A LIST OF TUNES",
+            "font_style": "radio_page",
             "heading_size": "h1"
           }
         },
         "1663187050c0254fe4-2": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
+            "button_label_1": "",
+            "button_link_1": "https:\/\/music.apple.com\/us\/playlist\/alot13\/pl.u-NP24TjVENx1",
+            "button_style_1": "apple",
             "button_style_secondary_1": false,
-            "button_label_2": "Button label",
-            "button_link_2": "",
+            "button_label_2": "",
+            "button_link_2": "https:\/\/open.spotify.com\/playlist\/4g8kx39pXb0omPpBFpGW1J?si=gKjLN-3NQOmuH0Ny1i5wkg",
+            "button_style_2": "spotify",
             "button_style_secondary_2": false
           }
         }
