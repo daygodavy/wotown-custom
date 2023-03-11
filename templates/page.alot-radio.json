@@ -37,8 +37,10 @@
         "1663187050c0254fe4-2"
       ],
       "settings": {
+        "image": "shopify:\/\/shop_images\/alotbackdrop.png",
+        "image_2": "shopify:\/\/shop_images\/alotbackdrop_68805f2b-04b5-4fb0-9163-047d5b19f05a.png",
         "image_overlay_opacity": 0,
-        "image_height": "large",
+        "image_height": "medium",
         "adapt_height_first_image": false,
         "desktop_content_position": "middle-center",
         "show_text_box": true,
