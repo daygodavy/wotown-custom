@@ -4,7 +4,7 @@
       "type": "main-page",
       "settings": {
         "padding_top": 28,
-        "padding_bottom": 28
+        "padding_bottom": 36
       }
     },
     "1663187050f4866022": {
@@ -38,10 +38,10 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/alotbackdrop.png",
-        "image_2": "shopify:\/\/shop_images\/alotbackdrop_68805f2b-04b5-4fb0-9163-047d5b19f05a.png",
+        "image_2": "{{ shop.brand.logo }}",
         "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "adapt_height_first_image": false,
+        "image_height": "large",
+        "adapt_height_first_image": true,
         "desktop_content_position": "middle-center",
         "show_text_box": true,
         "desktop_content_alignment": "center",
