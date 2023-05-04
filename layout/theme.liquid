@@ -1,6 +1,11 @@
 <!doctype html>
   <html class="no-js" lang="{{ request.locale.iso_code }}">
     <head>
+    fbq('track', 'AddPaymentInfo');
+      fbq('track', 'AddToCart');
+      fbq('track', 'InitiateCheckout');
+      fbq('track', 'Purchase', {value: 0.00, currency: 'USD'});
+      fbq('track', 'ViewContent');
     <!-- Facebook Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
