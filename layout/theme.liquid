@@ -12,8 +12,15 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window,document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
- fbq('init', '634894910319145'); 
-fbq('track', 'PageView');
+  
+      fbq('init', '634894910319145'); 
+      fbq('track', 'PageView');
+      fbq('track', 'AddToCart');
+      fbq('track', 'AddPaymentInfo');
+      fbq('track', 'InitiateCheckout');
+      fbq('track', 'Purchase', {value: 0.00, currency: 'USD'});
+      fbq('track', 'ViewContent');
+
 </script>
 <noscript>
  <img height="1" width="1" 
