@@ -257,6 +257,10 @@ src="https://www.facebook.com/tr?id=634894910319145&ev=PageView
       }
       </script>
     </head>
+          fbq('track', 'AddToCart');
+          fbq('track', 'AddPaymentInfo');
+          fbq('track', 'InitiateCheckout');
+          fbq('track', 'Purchase', {value: 0.00, currency: 'USD'});
   
     <body class="gradient">
       <a class="skip-to-content-link button visually-hidden" href="#MainContent">
