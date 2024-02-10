@@ -14,7 +14,7 @@
           "type": "text",
           "settings": {
             "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "text_style": "caption-with-letter-spacing"
           }
         },
         "166318458772279baf-2": {
@@ -35,7 +35,7 @@
         "166318458772279baf-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Scan_2.jpg",
+        "image": "shopify:\/\/shop_images\/IMG_6849.jpg",
         "logo": "shopify:\/\/shop_images\/WOTOWN.png",
         "image_overlay_opacity": 50,
         "menu": "main-menu"
