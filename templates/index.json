@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "heading": "Image banner",
-            "heading_size": "h1"
+            "heading_size": "h2"
           }
         },
         "166318458772279baf-1": {
@@ -45,7 +45,8 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Blank_Sheet_2_b38fe1f2-0888-4368-bbb7-ad063fc98f98.jpg",
-        "image_overlay_opacity": 70,
+        "logo": "shopify:\/\/shop_images\/wao_invert.png",
+        "image_overlay_opacity": 0,
         "menu": "main-menu"
       }
     }
