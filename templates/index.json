@@ -45,8 +45,7 @@
       ],
       "settings": {
         "image": "shopify:\/\/shop_images\/Blank_Sheet_2_b38fe1f2-0888-4368-bbb7-ad063fc98f98.jpg",
-        "logo": "shopify:\/\/shop_images\/wao_invert.png",
-        "image_overlay_opacity": 0,
+        "image_overlay_opacity": 100,
         "menu": "main-menu"
       }
     }
