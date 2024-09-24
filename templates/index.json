@@ -44,7 +44,7 @@
         "166318458772279baf-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/backdroptest.png",
+        "image": "shopify://shop_images/backdrop34.png",
         "image_overlay_opacity": 100,
         "menu": "main-menu"
       }
