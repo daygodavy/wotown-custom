@@ -20,14 +20,6 @@
     "1663187050f4866022": {
       "type": "image-banner-OG",
       "blocks": {
-        "1663187050c0254fe4-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "A LIST OF TUNES",
-            "font_style": "radio_page",
-            "heading_size": "h1"
-          }
-        },
         "1663187050c0254fe4-2": {
           "type": "buttons",
           "settings": {
@@ -43,7 +35,6 @@
         }
       },
       "block_order": [
-        "1663187050c0254fe4-0",
         "1663187050c0254fe4-2"
       ],
       "settings": {
@@ -54,10 +45,10 @@
         "desktop_content_position": "middle-center",
         "show_text_box": true,
         "desktop_content_alignment": "center",
-        "color_scheme": "accent-1",
+        "color_scheme": "inverse",
         "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
+        "stack_images_on_mobile": false,
+        "show_text_below": false
       }
     }
   },

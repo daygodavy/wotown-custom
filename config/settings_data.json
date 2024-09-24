@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "current": {
     "colors_solid_button_labels": "#121212",
@@ -105,20 +114,20 @@
       "header": {
         "type": "header",
         "settings": {
-          "color_scheme": "background-1",
-          "collection_image_one": "shopify:\/\/shop_images\/FLYER-F.png",
+          "color_scheme": "background-2",
+          "collection_image_one": "shopify://shop_images/FLYER-F.png",
           "collection_one": "working-on-a-hill",
-          "collection_image_two": "shopify:\/\/shop_images\/WOTOWN.png",
+          "collection_image_two": "shopify://shop_images/WOTOWN.png",
           "collection_two": "wotown-vintage",
-          "collection_image_three": "shopify:\/\/shop_images\/diallo-logo.png",
+          "collection_image_three": "shopify://shop_images/diallo-logo.png",
           "collection_three": "diallo",
-          "collection_image_four": "shopify:\/\/shop_images\/bender-logo.png",
+          "collection_image_four": "shopify://shop_images/bender-logo.png",
           "collection_four": "bender",
-          "collection_image_five": "shopify:\/\/shop_images\/ourkomunidad-logo.png",
+          "collection_image_five": "shopify://shop_images/ourkomunidad-logo.png",
           "collection_five": "our-kommunidad",
-          "collection_image_six": "shopify:\/\/shop_images\/Goldie_logo.jpg",
+          "collection_image_six": "shopify://shop_images/Goldie_logo.jpg",
           "collection_six": "goldie",
-          "collection_image_seven": "shopify:\/\/shop_images\/groovychris-logo.png",
+          "collection_image_seven": "shopify://shop_images/groovychris-logo.png",
           "collection_seven": "groovy-chris",
           "logo_width": 360,
           "logo_position": "top-center",
@@ -152,7 +161,7 @@
             "type": "text",
             "settings": {
               "heading": "Our mission",
-              "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+              "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
             }
           }
         },
@@ -193,7 +202,7 @@
     ],
     "blocks": {
       "15683396631634586217": {
-        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
         "disabled": false,
         "settings": {
           "button_color": "#202a36",
@@ -356,7 +365,7 @@
               "type": "text",
               "settings": {
                 "heading": "Our mission",
-                "subtext": "<p>Share contact information, store details, and brand content with your customers.<\/p>"
+                "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
               }
             }
           },
