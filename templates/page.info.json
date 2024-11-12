@@ -111,7 +111,7 @@
         "slide_JeJdew"
       ],
       "settings": {
-        "layout": "full_bleed",
+        "layout": "grid",
         "slide_height": "large",
         "slider_visual": "counter",
         "auto_rotate": false,
@@ -222,7 +222,7 @@
         "slide_nW4JXR"
       ],
       "settings": {
-        "layout": "full_bleed",
+        "layout": "grid",
         "slide_height": "large",
         "slider_visual": "counter",
         "auto_rotate": false,
@@ -333,7 +333,7 @@
         "fd6077bc-308c-40f2-af1d-05c7634f8188"
       ],
       "settings": {
-        "layout": "full_bleed",
+        "layout": "grid",
         "slide_height": "adapt_image",
         "slider_visual": "counter",
         "auto_rotate": false,
@@ -444,7 +444,7 @@
         "da81b15f-7c38-49cd-afeb-31a1a254b571"
       ],
       "settings": {
-        "layout": "full_bleed",
+        "layout": "grid",
         "slide_height": "adapt_image",
         "slider_visual": "counter",
         "auto_rotate": false,
