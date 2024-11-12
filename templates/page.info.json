@@ -120,6 +120,117 @@
         "accessibility_info": ""
       }
     },
+    "slideshow_BpYUe6": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_xecy3d": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5902_2.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "Wotown",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_4U4fff": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5911_2.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "Wotown",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_APFLqp": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5894_2.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "Wotown",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_ynbe6q": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5897_2.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "Wotown",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_nW4JXR": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/IMG_5900_2.jpg",
+            "heading": "",
+            "heading_size": "h2",
+            "subheading": "Wotown",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "center",
+            "image_overlay_opacity": 0,
+            "color_scheme": "background-1",
+            "text_alignment_mobile": "center"
+          }
+        }
+      },
+      "block_order": [
+        "slide_xecy3d",
+        "slide_4U4fff",
+        "slide_APFLqp",
+        "slide_ynbe6q",
+        "slide_nW4JXR"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "adapt_image",
+        "slider_visual": "counter",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
     "bf2180f0-4d2f-4ec3-ad62-b1c66098cd73": {
       "type": "slideshow",
       "blocks": {
@@ -352,6 +463,7 @@
   },
   "order": [
     "slideshow_jjxcTD",
+    "slideshow_BpYUe6",
     "bf2180f0-4d2f-4ec3-ad62-b1c66098cd73",
     "6527a8d9-f073-4991-a645-f392c53c53e6",
     "main"
